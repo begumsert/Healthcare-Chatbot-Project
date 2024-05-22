@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HealthCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        const user = window.sessionStorage.getItem("user");
+        if (user === null) {
+          window.location.replace("login.html");
+        }
+      </script>
+</head>
+<body>
+
+
+
+    <div class="wrapper">
+        <div class="nav">
+            <div class="logo">
+                <h2>Healthcare Chatbot</h2>
+            </div>
+            <div class="links">
+                
+                <a href="chatbot.html" class="mainlink">Chatbot</a>
+                <a href="index2.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="form.html">Health Background</a>
+
+            </div>
+        </div>
+	</div>
+
+        
+
+
+	<div class="about">
+        <div class="help">
+            <div class="helpText" data-aos="fade-up" data-aos-duration="1000">
+                <h1>We're here to<span style="color:#e0501b;font-size: 4vw"> Help</span> </h1>
+				<br>
+                <h3>If you're encountering issues with our chatbot or have any questions about how to use it, please check our FAQ section for immediate answers. For more detailed guidance or specific inquiries, don't hesitate to reach out to our support team through begsert@gmail.com . We are committed to providing you with a smooth experience and are available 09:00-18:00 to ensure your questions never go unanswered.
+				<br>
+				<br>
+				<br>
+				<br></h3>
+                <br>
+                
+            </div>
+            <div class="helpImage" data-aos="fade-down" data-aos-duration="2000">
+                <img src="img/help.png" alt="">
+            </div>
+        </div>
+
+                            
+                
+            </div>
+		
+     
+
+
+        
+
+
+        <div class="footer">
+            <h2>HealthCare.</h2>
+            <div class="footerlinks">
+                <a href="chatbot.html" class="mainlink">Chatbot</a>
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+            AOS.init();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+html,
+body {
+  height: 100%;
+}
+
+body.login-page {
+  background-color: #afcff0;
+  font-size: 14px;
+}
+
+.login-page .brand {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.login-page .brand img {
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  margin: 10px auto;
+}
+
+.login-page .kutucuk-wrapper {
+  width: 400px;
+}
+
+.login-page .kutucuk {
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.login-page .kutucuk.fat {
+  padding: 10px;
+}
+
+.login-page .kutucuk .kutucuk-title {
+  margin-bottom: 30px;
+}
+
+.login-page .form-control {
+  border-width: 2.3px;
+}
+
+.login-page .form-group label {
+  width: 100%;
+}
+
+.login-page .btn.btn-block {
+  padding: 12px 10px;
+}
+
+.login-page .footer {
+  margin: 40px 0;
+  color: #888888;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .login-page .kutucuk-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .login-page .kutucuk.fat {
+    padding: 0;
+  }
+
+  .login-page .kutucuk.fat .kutucuk-body {
+    padding: 15px;
+  }
+}

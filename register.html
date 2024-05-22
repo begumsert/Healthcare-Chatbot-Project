@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Register Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		
+</head>
+
+
+<body>
+
+
+	<div class="about" style="height: 100px !important;">
+		<div class="wrapper">
+			<div class="nav">
+				<div class="logo">
+					<h2>Healthcare Chatbot</h2>
+				</div>
+				<div class="links">
+					<a href="index.html" class="mainlink">Home</a>
+					<a href="chatbot.html">Chatbot</a>
+					<a href="help.html">Help</a>
+					<a href="faq.html">FAQ</a>
+                
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="login-page">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="kutucuk-wrapper">
+					<div class="brand">
+						<img src="img/logo2.png" alt="logo">
+					</div>
+					<div class="kutucuk fat">
+						<div class="kutucuk-body">
+							<h4 class="kutucuk-title">Register</h4>
+							<form id="registerFormSubmit" class="login-validation" novalidate="">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input id="name" type="text" class="form-control" name="name" required autofocus>
+									<div  id="name-error"  class="error-feedback hide">
+										What's your name?
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" required>
+									<div id="error-email" class="error-feedback hide">
+										Your email is invalid
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<div  id="password-error"  class="error-feedback hide">
+										Password is required
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="custom-checkbox custom-control">
+										<input type="checkbox" name="agree" id="agree" class="custom-control-input" required="">
+										<label for="agree" class="custom-control-label">I agree to the <a href="#">Terms and Conditions</a></label>
+										<div id="error-terms" class="hide  error-feedback">
+											You must agree with our Terms and Conditions
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-primary btn-block">
+										Register
+									</button>
+									<div id="RegisterResponse" class="hide"></div>
+								</div>
+								<div class="mt-4 text-center">
+									Already have an account? <a href="login.html">Login</a>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+<script>
+	
+	const form = document.getElementById('registerFormSubmit')
+
+	form.addEventListener('submit', function (event) {
+       
+        event.preventDefault();
+
+		const name = document.getElementById('name').value.toString().trim()
+       const email = document.getElementById('email').value.toString().trim()
+	   const password = document.getElementById('password').value.toString().trim()
+	   const agree = document.getElementById('agree').checked
+	
+	   const nameError =  document.getElementById('name-error')
+	   const errorEmail =  document.getElementById('error-email')
+	   const passwordError =  document.getElementById('password-error')
+	   const termsError =  document.getElementById('error-terms')
+	   
+	   const RegisterResponse = document.getElementById('RegisterResponse')
+
+	   if(name ===''){
+	
+		nameError.classList.contains('hide') && nameError.classList.remove('hide')
+			return
+		}
+
+		nameError.classList.contains('hide') || nameError.classList.add('hide')
+	
+		if(email ===''){
+	
+			errorEmail.classList.contains('hide') && errorEmail.classList.remove('hide')
+			return
+		}
+
+		errorEmail.classList.contains('hide') || errorEmail.classList.add('hide')
+		
+		if(password ===''){
+		
+			passwordError.classList.contains('hide') && passwordError.classList.remove('hide')
+			return
+		}
+	
+	
+		passwordError.classList.contains('hide') || passwordError.classList.add('hide')
+
+	if(!agree){
+		
+		termsError.classList.contains('hide') && termsError.classList.remove('hide')
+		return
+	}
+
+
+	termsError.classList.contains('hide') || termsError.classList.add('hide')
+
+
+		const body = {
+			name,email,password
+		}
+
+
+		RegisterResponse.classList.contains('hide') || RegisterResponse.classList.add('hide')
+		RegisterResponse.classList.contains('error-feedback') && RegisterResponse.classList.remove('error-feedback')
+		RegisterResponse.classList.contains('success-feedback') && RegisterResponse.classList.remove('success-feedback')
+		fetch("http://localhost:3000/createUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      	}).then((response) => response.json())
+        .then((data) => {
+			if(data.success) {
+				RegisterResponse.textContent = data.message
+			RegisterResponse.classList.contains('hide') && RegisterResponse.classList.remove('hide')
+			RegisterResponse.classList.contains('success-feedback') || RegisterResponse.classList.add('success-feedback')
+			setTimeout(()=>{
+				window.location.replace('login.html')
+			},2000)
+			}else{
+				RegisterResponse.textContent = data.message
+			RegisterResponse.classList.contains('hide') && RegisterResponse.classList.remove('hide')
+			RegisterResponse.classList.contains('error-feedback') || RegisterResponse.classList.add('error-feedback')
+			
+			}
+			
+        })
+        .catch((error) => console.error("Error:", error));
+
+    });
+</script>
+</html>

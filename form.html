@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HealthCare</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+      const user = window.sessionStorage.getItem("user");
+      if (user === null) {
+        window.location.replace("login.html");
+      }
+    </script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="nav">
+            <div class="logo">
+                <h2>Healthcare Chatbot</h2>
+            </div>
+            <div class="links">
+                
+                <a href="chatbot.html" class="mainlink">Chatbot</a>
+                <a href="index2.html">Home</a>
+                <a href="help.html">Help</a>
+                <a href="faq.html">FAQ</a>
+                
+
+            </div>
+        </div>
+		</div>
+
+        
+
+
+        <div class="about">
+            <div class="aboutText" >
+                
+
+                <br>
+                <br>
+
+                <h3><p>Your health history gives our chatbot the ability to provide you with individualized, needs-based health advice. With your aid, we can better understand your particular health profile and provide you with enlightening ideas to help you reach your wellness objectives. You can be sure that any information you give will be treated with the highest confidentiality and used only to improve your experience using our medical services.</p></h3>
+
+                <h3><p>We appreciate you taking the time to tell us about your medical history. We applaud your proactive attitude to health management and are here to support you at every stage.</p></h3>    
+
+
+
+
+    <div >
+        <div id="myForm"    style="padding: 40px 40px">
+            <h3 >Health Background</h3>
+            <form action="C:\Users\Monster\Desktop\BEGÜM\Chatbot Project\Chatbot111\Chatbot\form.php"  method="post">
+            <div  style="margin-top: 40px">
+                <div ><label class="h6">Name </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder="Full Name * "></input></div>
+                </div>
+
+                <div class="form-group" style="margin-top: 10px"><label class="h6">Email address </label>
+                    <div  class="form-group" style="margin-top: 10px"><input type="text" required name="email" class="form-control" type="text"
+                            placeholder="example@gmail.com  "></input></div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 10px"><label class="h6">Gender </label>
+                    <div class="form-group" style="margin-top: 10px">
+                        <select name="department" class="custom-select form-control" style="margin-top: 10px">
+                            <option>Please Select</option><svg width="8" height="14" viewBox="0 0 8 14"
+                                fill="none" >
+                                <path d="M 0 12 L 5 7 L 0 2 L 1 0 L 8 7 L 1 14 L 0 12 Z"
+                                    fill="rgb(115, 115, 115)" />
+                            </svg>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select></div>
+                </div>
+
+                <div>
+                <label for="birth_date">Date of Birth </label>
+
+                    <div>
+                    
+                        <input type="date" id="birth_date" name="birth_date" 
+                        min="1930-01-01" required>
+
+                    </div>                    
+                </div>
+
+                <div ><label class="h6">Height </label>
+                        <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Weight </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div class="form-group" style="margin-top: 10px"><label class="h6">Blood Type </label>
+                    <div class="form-group" style="margin-top: 10px">
+                        <select name="time" class="custom-select form-control">
+                            <option>Please Select</option><svg width="8" height="14" viewBox="0 0 8 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 0 12 L 5 7 L 0 2 L 1 0 L 8 7 L 1 14 L 0 12 Z"
+                                    fill="rgb(115, 115, 115)" />
+                            </svg>
+                            <option>O RhD positive (O+)</option>
+                            <option>O RhD negative (O-)</option>
+                            <option>A RhD positive (A+)</option>
+                            <option>A RhD negative (A-)</option>
+                            <option>B RhD positive (B+)</option>
+                            <option>B RhD negative (B-)</option>
+                            <option>AB RhD positive (AB+)</option>
+                            <option>AB RhD negative (AB-)</option>
+                        </select></div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 10px"><label class="h6">Do you smoke? </label>
+                    <div class="form-group" style="margin-top: 10px">
+                        <select name="department" class="custom-select form-control" style="margin-top: 10px">
+                            <option>Please Select</option><svg width="8" height="14" viewBox="0 0 8 14"
+                                fill="none" >
+                                <path d="M 0 12 L 5 7 L 0 2 L 1 0 L 8 7 L 1 14 L 0 12 Z"
+                                    fill="rgb(115, 115, 115)" />
+                            </svg>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>Former smoker</option>
+                        </select></div>
+                </div>           
+
+                <div ><label class="h6">How frequently do you consume alcohol? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Are you currently taking any medications? If yes, which ones? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have you undergone any surgeries? If yes, what type of surgeries? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you have any chronic conditions? If yes, what are they? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Is there a history of chronic illnesses in your family? If yes, which ones? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you have any food allergies? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you follow any specific diet? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">How much caffeine do you consume daily? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Are there any specific aspects of your diet that you pay attention to? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">How much fluid do you consume daily? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Are you taking any health supplements? If yes, which ones? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you have any medication allergies? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have you experienced any illness or health issues in the past year? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have you experienced any sudden weight loss recently? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you regularly exercise? How many days per week and what types of exercise? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Do you experience any sleep issues? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">What is your stress level throughout the day? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have you had any serious injuries or accidents recently? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>                
+
+                <div ><label class="h6">Have you received any psychological or psychiatric treatments in the past? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have there been any recent changes in your work or home life? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>
+
+                <div ><label class="h6">Have you traveled abroad in the last year? </label>
+                    <div class="form-group" style="margin-top: 10px"><input type="text" name="name" class="form-control" type="text"
+                            placeholder=" "></input></div>
+                </div>          
+              
+                <br>
+
+                <div class="form-group">
+                    <div class="custom-checkbox custom-control">
+                        <input type="checkbox" name="remember" id="remember" class="custom-control-input">
+                        <label for="remember" class="custom-control-label">I acknowledge that providing my health information is crucial for receiving the most accurate and relevant health advice.</label>
+                    </div>
+                </div>
+
+
+            </div>
+
+                      <button class="show-form" onclick="toggleForm()" style="margin-top: 40px"><span>Save Informations</span></button>
+                </form>             
+            </div>
+        </div>
+
+
+
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		<p> </p>
+		
+		
+	
+                
+            </div>   
+
+		
+
+			
+        </div>  
+		
+
+
+        
+		<div class="footer">
+            <h2>HealthCare.</h2>
+            <div class="footerlinks">
+                <a href="chatbot.html" class="mainlink">Chatbot</a>
+                <a href="index.html">Home</a>
+                <a href="help.html">Help</a>
+            </div>
+        </div>
+     
+	</div>
+
+
+	
+
+
+</body>
+</html>

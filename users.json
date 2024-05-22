@@ -1,0 +1,52 @@
+[
+  {
+    "name": "aaa",
+    "email": "aaa",
+    "password": "aaa"
+  },
+  {
+    "name": "aaaa",
+    "email": "aaaa",
+    "password": "aaa"
+  },
+  {
+    "name": "name",
+    "email": "email",
+    "password": "1234"
+  },
+  {
+    "name": "kaz",
+    "email": "kazmi@xyz.com",
+    "password": "1234"
+  },
+  {
+    "name": "deneme",
+    "email": "deneme@gmail.com",
+    "password": "Deneme123"
+  },
+  {
+    "name": "kutay",
+    "email": "kutay@gmail.com",
+    "password": "kutay123"
+  },
+  {
+    "name": "aaa",
+    "email": "aaa@gmail.com",
+    "password": "aaaa"
+  },
+  {
+    "name": "begüm",
+    "email": "bbbb@gmail.com",
+    "password": "bbbb"
+  },
+  {
+    "name": "zzz",
+    "email": "zzz@gmail.com",
+    "password": "zzz"
+  },
+  {
+    "name": "qqqq",
+    "email": "qqqq@gmail.com",
+    "password": "qqqq"
+  }
+]

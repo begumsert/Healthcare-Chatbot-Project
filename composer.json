@@ -1,0 +1,15 @@
+{
+    "name": "monster/chatbot",
+    "description": "Healthcare Chatbot Project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Begüm Sert"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "mongodb/mongodb": "^1.19"
+    }
+}

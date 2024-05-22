@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	
+</head>
+
+
+
+<body>
+
+
+	<div class="about" style="height: 100px !important;">
+		<div class="wrapper">
+			<div class="nav">
+				<div class="logo">
+					<h2>Healthcare Chatbot</h2>
+				</div>
+				<div class="links">
+					<a href="index.html" class="mainlink">Home</a>
+					<a href="chatbot.html">Chatbot</a>
+					<a href="help.html">Help</a>
+					<a href="faq.html">FAQ</a>
+                
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="login-page">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="kutucuk-wrapper">
+					<div class="brand">
+						<img src="img/logo2.png" alt="logo">
+					</div>
+					<div class="kutucuk fat">
+						<div class="kutucuk-body">
+							<h4 class="kutucuk-title">Login</h4>
+							<form id="loginFormSubmit"  class="login-validation" novalidate="">
+								<div class="form-group">
+									<label for="email">E-Mail Address</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<div id="email-error" class="invalid-feedback hide">
+										Email is invalid
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input id="password" type="password" class="form-control" name="password" required data-eye>
+								    <div id="password-error" class="invalid-feedback hide">
+								    	Password is required
+							    	</div>
+								</div>
+
+								<div class="form-group">
+									<div class="custom-checkbox custom-control">
+										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
+										<label for="remember" class="custom-control-label">Remember Me</label>
+									</div>
+								</div>
+
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-primary btn-block">
+										Login
+									</button>
+								</div>
+								<div id="LoginResponse" class=" hide"></div>
+								
+								<div class="mt-4 text-center">
+									Don't have an account? <a href="register.html">Create One</a>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+<script>
+	
+	const form = document.getElementById('loginFormSubmit')
+
+	form.addEventListener('submit', function (event) {
+       
+        event.preventDefault();
+
+       const email = document.getElementById('email').value.toString().trim()
+	   const password = document.getElementById('password').value.toString().trim()
+
+	   const errorEmail =  document.getElementById('email-error')
+	   const passwordEmail =  document.getElementById('password-error')
+	   const LoginResponse = document.getElementById('LoginResponse')
+
+	
+		if(email ===''){
+	
+			errorEmail.classList.contains('hide') && errorEmail.classList.remove('hide')
+			return
+		}
+
+		errorEmail.classList.contains('hide') || errorEmail.classList.add('hide')
+		
+		if(password ===''){
+		
+			errorEmail.classList.contains('hide') && passwordEmail.classList.remove('hide')
+			return
+		}
+	
+	
+		passwordEmail.classList.contains('hide') || passwordEmail.classList.add('hide')
+		const body = {
+			email,password
+		}
+
+
+		LoginResponse.classList.contains('hide') || LoginResponse.classList.add('hide')
+		LoginResponse.classList.contains('error-feedback') && LoginResponse.classList.remove('error-feedback')
+		LoginResponse.classList.contains('success-feedback') && LoginResponse.classList.remove('success-feedback')
+		fetch("http://localhost:3000/loginUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      	}).then((response) => response.json())
+        .then((data) => {
+			if(data.success) {
+				LoginResponse.textContent = data.message
+			LoginResponse.classList.contains('hide') && LoginResponse.classList.remove('hide')
+			LoginResponse.classList.contains('success-feedback') || LoginResponse.classList.add('success-feedback')
+			console.log(data)
+			window.sessionStorage.setItem('user',JSON.stringify({
+				user:data.user
+			}))
+			setTimeout(()=>{
+				window.location.replace('index2.html')
+			},2000)
+			}else{
+				LoginResponse.textContent = data.message
+			LoginResponse.classList.contains('hide') && LoginResponse.classList.remove('hide')
+			LoginResponse.classList.contains('error-feedback') || LoginResponse.classList.add('error-feedback')
+			
+			}
+        })
+        .catch((error) => console.error("Error:", error));
+
+    });
+</script>
+</html>
